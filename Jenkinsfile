@@ -34,7 +34,7 @@ pipeline {
                         branch: "${env.BRANCH_NAME}",
                         credentialsId: 'bitbucket_key'
 
-                sh """./data-images/sd-v1-5/build.sh"""
+                sh """./build.sh"""
             }
         }
     }
