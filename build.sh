@@ -19,6 +19,9 @@ else
   MLP_SDK_VERSION=dev
 fi
 
+
+eval $(ssh-agent)
+ssh-add $HOME/.ssh/id_rsa
 export DOCKER_BUILDKIT=1
-docker build . -t $IMAGE --build-arg MLP_SDK_VERSION=$MLP_SDK_VERSION --no-cache
+docker build . --ssh default -t $IMAGE --build-arg MLP_SDK_VERSION=$MLP_SDK_VERSION --no-cache
 docker push $IMAGE

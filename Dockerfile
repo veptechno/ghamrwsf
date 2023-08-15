@@ -1,10 +1,10 @@
-#FROM python:3.8
-FROM docker-hub.just-ai.com/base/nvidia/nemo:22.05
+FROM python:3.8
+#FROM docker-hub.just-ai.com/base/nvidia/nemo:22.05
 
-RUN apt-get update && apt-get upgrade -y &&\
-    apt-get install -y --no-install-recommends \
+#RUN apt-get update && apt-get upgrade -y &&\
+#    apt-get install -y --no-install-recommends \
 
-RUN pip install pip==21.3.1
+#RUN pip install pip==21.3.1
 
 ARG MLP_SDK_VERSION
 
