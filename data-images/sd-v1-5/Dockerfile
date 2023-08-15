@@ -5,5 +5,5 @@ RUN apk update \
     && apk add build-base git git-lfs \
     && git lfs install \
 
-RUN mkdir /resources
-RUN git clone https://huggingface.co/runwayml/stable-diffusion-v1-5 /resources
+RUN mkdir ./resources
+RUN git clone https://huggingface.co/runwayml/stable-diffusion-v1-5 ./resources
