@@ -27,6 +27,7 @@ class TextsCollection(BaseModel):
 
 class SdInitConfig(BaseModel):
     device: str = Field("cuda:0")
+    model_path: str = Field("/resources")
 
 
 class SdResponse(BaseModel):
@@ -38,7 +39,7 @@ class MlpSdService(Task):
         super().__init__(config, service_sdk)
         logger.info(f'Initializing MlpSdService, {config=}')
 
-        self.generator = DiffusionPipeline.from_pretrained("/resources")
+        self.generator = DiffusionPipeline.from_pretrained(config.model_path)
         self.generator.to("cuda")
         self.inference_lock = Lock()
 
