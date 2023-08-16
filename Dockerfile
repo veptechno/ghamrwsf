@@ -1,5 +1,6 @@
-FROM python:3.8
+#FROM python:3.8
 #FROM docker-hub.just-ai.com/base/nvidia/nemo:22.05
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 
 #RUN apt-get update && apt-get upgrade -y &&\
 #    apt-get install -y --no-install-recommends \
@@ -18,8 +19,7 @@ COPY requirements.txt requirements.txt
 
 ENV USE_TORCH=1
 
-RUN pip install -r requirements.txt \
-    --extra-index-url https://download.pytorch.org/whl/cu117
+RUN pip install -r requirements.txt
 
 COPY . .
 
