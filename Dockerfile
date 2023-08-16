@@ -7,6 +7,11 @@ FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 
 #RUN pip install pip==21.3.1
 
+RUN apk update \
+    && apk upgrade \
+    && apk add build-base git git-lfs \
+    && git lfs install \
+
 ARG MLP_SDK_VERSION
 
 RUN pip install git+https://gitlab.just-ai.com/ml-platform-pub/mlp-python-sdk@$MLP_SDK_VERSION
